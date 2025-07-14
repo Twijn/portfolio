@@ -6,8 +6,10 @@
 
 <svelte:head>
 	<title>Twijn - Full Stack Developer & System Administrator</title>
-	<meta name="description"
-				content="Full Stack Developer, Minecraft Plugin/Mod Developer, System Administrator and Cybersecurity Specialist based in the USA.">
+	<meta
+		name="description"
+		content="Full Stack Developer, Minecraft Plugin/Mod Developer, System Administrator and Cybersecurity Specialist based in the USA."
+	/>
 </svelte:head>
 
 <Landing />

@@ -10,7 +10,7 @@
 <Wrapper headingType="h1" heading="Knowledgebase" size="small" bg="transparent">
 	<p>
 		Need support for one of my projects?
-		<br>
+		<br />
 		We probably have an article on our knowledgebase for you!
 	</p>
 	<Button variant="primary" href="https://knowledgebase.twijn.dev" full={true} newTab={true}>
@@ -20,6 +20,6 @@
 
 <style>
 	p {
-			text-align: center;
+		text-align: center;
 	}
 </style>

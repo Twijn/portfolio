@@ -19,7 +19,13 @@ export class Project implements RawProject {
 	public image: string;
 	public urls: URL[] = [];
 
-	constructor(name: string, description: string, image: string, technologies: string[], urls?: URL[]) {
+	constructor(
+		name: string,
+		description: string,
+		image: string,
+		technologies: string[],
+		urls?: URL[]
+	) {
 		this.id = name
 			.toLowerCase()
 			.replace(/[^a-z. -]/g, '')
