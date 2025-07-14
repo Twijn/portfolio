@@ -8,11 +8,28 @@
 	import { page } from '$app/state';
 
 	const { children } = $props();
+	let isMenuOpen = $state(false);
+
+	function onClick(e: MouseEvent) {
+		const target = e.target as HTMLElement;
+		if (!target.closest('.mobile-menu-button') && !target.closest('nav')) {
+			isMenuOpen = false;
+		}
+	}
 </script>
+
+<svelte:window onclick={onClick} />
 
 <header>
 	<div class="logo">Twijn</div>
-	<nav>
+	<button class="mobile-menu-button" onclick={() => isMenuOpen = !isMenuOpen} aria-label="Toggle menu">
+		<span class="hamburger" class:open={isMenuOpen}>
+			<span></span>
+			<span></span>
+			<span></span>
+		</span>
+	</button>
+	<nav class:open={isMenuOpen}>
 		<ul>
 			<li><a href="/" aria-current={page.url.pathname === '/' ? 'page' : undefined}>Home</a></li>
 			<li>
@@ -50,27 +67,99 @@
 		align-items: center;
 		padding: 0 1rem;
 		height: 4rem;
-	}
+		position: relative;
+  }
 
-	.logo {
+  .logo {
 		font-family: var(--heading-font), serif;
 		font-size: 2em;
 		text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
-	}
+  }
 
-	header nav ul {
+  .mobile-menu-button {
+		display: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.5rem;
+  }
+
+  .hamburger {
+		width: 24px;
+		height: 20px;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+  }
+
+  .hamburger span {
+		display: block;
+		height: 2px;
+		width: 100%;
+		background-color: var(--text-color-1);
+		transition: 0.3s;
+  }
+
+  .hamburger.open span:nth-child(1) {
+		transform: translateY(9px) rotate(45deg);
+  }
+
+  .hamburger.open span:nth-child(2) {
+		opacity: 0;
+  }
+
+  .hamburger.open span:nth-child(3) {
+		transform: translateY(-9px) rotate(-45deg);
+  }
+
+  header nav ul {
 		display: flex;
 		margin: 0;
 		padding: 0;
 		list-style: none;
-	}
+  }
 
-	header nav a {
+  @media (max-width: 768px) {
+		.mobile-menu-button {
+			display: block;
+		}
+
+		header nav {
+			position: absolute;
+			top: 100%;
+			right: 1em;
+			background: var(--background-color-1);
+			padding: 1rem;
+			transform: translateX(100%);
+			opacity: 0;
+			pointer-events: none;
+			transition: 0.3s;
+			border-radius: 0.5em;
+			box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+			z-index: 10;
+		}
+
+		header nav.open {
+			transform: translateX(0);
+			opacity: 1;
+			pointer-events: all;
+		}
+
+		header nav ul {
+			flex-direction: column;
+			gap: 1rem;
+		}
+  }
+
+  header nav a {
 		position: relative;
+		display: block;
 		font-size: 1.1em;
 		color: var(--text-color-1);
 		font-weight: 500;
 		text-decoration: none;
+		text-align: center;
 		padding: 0.6em 0.8em;
 		opacity: 0.8;
 		transition: 0.2s;
@@ -84,7 +173,7 @@
 		content: '';
 		background-color: var(--theme-color-1);
 		width: calc(100% - 1em);
-		height: 0.3em;
+		height: 0.2em;
 		z-index: -1;
 		opacity: 0;
 		transition: 0.2s;
@@ -99,15 +188,17 @@
 		opacity: 0.9;
 	}
 
-	header nav:hover a,
-	header nav:focus-within a {
-		opacity: 0.5;
+	@media only screen and (min-width: 768px) {
+		header nav:hover a,
+		header nav:focus-within a {
+			opacity: 0.5;
+		}
 	}
 
-	header nav a:hover,
-	header nav a:focus-visible {
+  header nav a:hover,
+  header nav a:focus-visible {
 		opacity: 1;
-	}
+  }
 
 	footer {
 		padding: 1rem;
