@@ -38,6 +38,7 @@
 	"dependencies": {
 		"@fontsource/platypi": "^5.2.6",
 		"@fontsource/source-sans-3": "^5.2.8",
-		"@sveltejs/adapter-vercel": "^5.7.2"
+		"@sveltejs/adapter-vercel": "^5.7.2",
+		"@vercel/speed-insights": "^1.2.0"
 	}
 }
