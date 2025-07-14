@@ -1,0 +1,43 @@
+:root {
+    --heading-font: "Platypi", serif;
+    --body-font: "Source Sans 3", sans-serif;
+
+    --text-color-1: #f4f6f8;
+    --text-color-2: #e1e2e6;
+
+    --background-color-1: #2e3235;
+    --background-color-2: #222829;
+    --background-color-3: #1b2123;
+
+    --theme-color-1-rgb: 29, 129, 173;
+    --theme-color-1: #1d81ad;
+    --theme-color-2: #2c92bf;
+}
+
+html, body {
+    max-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: radial-gradient(var(--background-color-2), var(--background-color-3)) fixed;
+    color: var(--text-color-1);
+    font-family: var(--body-font), sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font), serif;
+    font-weight: 400;
+}
+
+a {
+    color: var(--theme-color-2);
+    transition: .25s;
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--theme-color-1);
+}
