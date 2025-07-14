@@ -22,7 +22,11 @@
 
 <header>
 	<div class="logo">Twijn</div>
-	<button class="mobile-menu-button" onclick={() => isMenuOpen = !isMenuOpen} aria-label="Toggle menu">
+	<button
+		class="mobile-menu-button"
+		onclick={() => (isMenuOpen = !isMenuOpen)}
+		aria-label="Toggle menu"
+	>
 		<span class="hamburger" class:open={isMenuOpen}>
 			<span></span>
 			<span></span>
@@ -68,59 +72,59 @@
 		padding: 0 1rem;
 		height: 4rem;
 		position: relative;
-  }
+	}
 
-  .logo {
+	.logo {
 		font-family: var(--heading-font), serif;
 		font-size: 2em;
 		text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
-  }
+	}
 
-  .mobile-menu-button {
+	.mobile-menu-button {
 		display: none;
 		background: none;
 		border: none;
 		cursor: pointer;
 		padding: 0.5rem;
-  }
+	}
 
-  .hamburger {
+	.hamburger {
 		width: 24px;
 		height: 20px;
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-  }
+	}
 
-  .hamburger span {
+	.hamburger span {
 		display: block;
 		height: 2px;
 		width: 100%;
 		background-color: var(--text-color-1);
 		transition: 0.3s;
-  }
+	}
 
-  .hamburger.open span:nth-child(1) {
+	.hamburger.open span:nth-child(1) {
 		transform: translateY(9px) rotate(45deg);
-  }
+	}
 
-  .hamburger.open span:nth-child(2) {
+	.hamburger.open span:nth-child(2) {
 		opacity: 0;
-  }
+	}
 
-  .hamburger.open span:nth-child(3) {
+	.hamburger.open span:nth-child(3) {
 		transform: translateY(-9px) rotate(-45deg);
-  }
+	}
 
-  header nav ul {
+	header nav ul {
 		display: flex;
 		margin: 0;
 		padding: 0;
 		list-style: none;
-  }
+	}
 
-  @media (max-width: 768px) {
+	@media (max-width: 768px) {
 		.mobile-menu-button {
 			display: block;
 		}
@@ -150,9 +154,9 @@
 			flex-direction: column;
 			gap: 1rem;
 		}
-  }
+	}
 
-  header nav a {
+	header nav a {
 		position: relative;
 		display: block;
 		font-size: 1.1em;
@@ -195,10 +199,10 @@
 		}
 	}
 
-  header nav a:hover,
-  header nav a:focus-visible {
+	header nav a:hover,
+	header nav a:focus-visible {
 		opacity: 1;
-  }
+	}
 
 	footer {
 		padding: 1rem;
